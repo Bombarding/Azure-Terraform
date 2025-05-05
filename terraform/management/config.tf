@@ -5,6 +5,6 @@ locals {
     "preview"    = {},
     "staging"    = {},
     "production" = {},
-    "testing" = {},
+    "testing"    = {},
   }
 }
