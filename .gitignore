@@ -1,2 +1,3 @@
 terraform/management/.terraform/
 terraform/*/.terraform/
+terraform/*/*.tfstate
