@@ -1,1 +1,2 @@
 terraform/management/.terraform/
+terraform/*/.terraform/
