@@ -16,9 +16,6 @@ resource "local_file" "plan_script" {
 }
 
 resource "local_file" "main-tf" {
-  lifecycle {
-    ignore_changes = all
-  }
   filename        = "${local.path}/${var.name}.tf-example"
   file_permission = "0644"
   content = templatefile("${path.module}/templates/main.tf-template",
