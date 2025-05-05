@@ -1,4 +1,4 @@
 terraform/management/.terraform/
 terraform/*/.terraform/
 terraform/management/*.tfstate
-terraform/management/*.tfstate.*
+terraform/management/terraform.tfstate.*
