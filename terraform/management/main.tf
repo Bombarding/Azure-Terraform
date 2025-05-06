@@ -1,7 +1,8 @@
 module "environments" {
-  for_each = local.spaces
-  source   = "./bootstrap"
-  name     = each.key
+  for_each            = local.spaces
+  source              = "./bootstrap"
+  name                = each.key
+  resource_group_name = var.resource_group_name
 }
 
 module "network" {

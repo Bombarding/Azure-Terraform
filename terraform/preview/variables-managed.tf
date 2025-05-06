@@ -13,3 +13,15 @@ variable "tenant_id" {
   sensitive   = true
   description = "The value of the Azure Tenant ID to target"
 }
+
+variable "resource_group_name" {
+  type        = string
+  description = "The name of the resource group to manage"
+  default     = "AzureDevopsPersonalResourceGroup"
+}
+
+variable "keyvault_name" {
+  type        = string
+  description = "The name of the Keyvault"
+  default     = "previewkeyvault"
+}

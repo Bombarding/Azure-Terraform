@@ -1,4 +1,4 @@
-variable "name" {
+variable "keyvault_name" {
   type        = string
   description = "name of the environment"
 }

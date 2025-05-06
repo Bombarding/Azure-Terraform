@@ -29,7 +29,12 @@ resource "local_file" "plan_script" {
 resource "local_file" "variables-tf" {
   filename        = "${local.path}/variables-managed.tf"
   file_permission = "0644"
-  content         = file("${path.module}/templates/variables.tf-template")
+  content = templatefile("${path.module}/templates/variables.tf-template",
+    {
+      name                = var.name
+      resource_group_name = var.resource_group_name
+    }
+  )
 }
 
 resource "local_file" "providers-tf" {
