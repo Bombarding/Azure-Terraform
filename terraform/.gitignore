@@ -3,5 +3,5 @@
 */terraform.tfstate
 */terraform.tfstate.backup
 */secrets.auto.tfvars
-shared/config/backend.tfvars
+shared/config/*
 */*.tfplan
