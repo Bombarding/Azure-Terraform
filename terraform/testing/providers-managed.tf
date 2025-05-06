@@ -13,13 +13,10 @@ terraform {
 
   backend "azurerm" {
     # The rest of the backend parameters must be supplied when you initialize:
-    #   terraform init --backend-config=../shared/config/backend.tfvars \
-    #    --backend-config=key=terraform.tfstate.$(basename $(pwd))
-    # access_key           = "abcdefghijklmnopqrstuvwxyz0123456789..."  # Can also be set via `ARM_ACCESS_KEY` environment variable.
-    # storage_account_name = "abcd1234"                                 # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
-    # container_name       = "tfstate"                                  # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
-    # key                  = "prod.terraform.tfstate"                   # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
-    #
+    # access_key           = "" # Can also be set via `ARM_ACCESS_KEY` environment variable.
+    # storage_account_name = "" # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"`
+    # container_name       = "" # Can be passed via `-backend-config=`"container_name=<container name>"`
+    # key                  = "" # Can be passed via `-backend-config=`"key=<blob key name>"`
     # For more info, see:
     # https://developer.hashicorp.com/terraform/language/backend#partial-configuration
     encrypt = "true"
@@ -27,5 +24,13 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id = var.subscription_id
+  resource_provider_registrations = "none"
+  subscription_id                 = var.subscription_id
+  tenant_id                       = var.tenant_id
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy    = true
+      recover_soft_deleted_key_vaults = false
+    }
+  }
 }
