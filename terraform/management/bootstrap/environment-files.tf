@@ -3,11 +3,14 @@ locals {
 }
 
 # Leave a script for properly initializing when running locally
-resource "local_file" "initialization_script" {
-  filename        = "${local.path}/init.sh"
-  file_permission = "0755"
-  content         = file("${path.module}/templates/init.sh-template")
-}
+# resource "local_file" "initialization_script" {
+#   lifecycle {
+#     ignore_changes = all
+#   }
+#   filename        = "${local.path}/init.sh"
+#   file_permission = "0755"
+#   content         = file("${path.module}/templates/init.sh-template")
+# }
 
 resource "local_file" "plan_script" {
   filename        = "${local.path}/plan.sh"
