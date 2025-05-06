@@ -15,13 +15,16 @@ resource "local_file" "plan_script" {
   content         = file("${path.module}/templates/plan.sh-template")
 }
 
-resource "local_file" "main-tf" {
-  filename        = "${local.path}/${var.name}.tf-example"
-  file_permission = "0644"
-  content = templatefile("${path.module}/templates/main.tf-template",
-    { name = var.name }
-  )
-}
+# resource "local_file" "main-tf" {
+#   lifecycle {
+#     ignore_changes = all
+#   }
+#   filename        = "${local.path}/${var.name}.tf-example"
+#   file_permission = "0644"
+#   content = templatefile("${path.module}/templates/main.tf-template",
+#     { name = var.name }
+#   )
+# }
 
 resource "local_file" "variables-tf" {
   filename        = "${local.path}/variables-managed.tf"

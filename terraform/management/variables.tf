@@ -10,13 +10,13 @@ variable "terraform_state_bucket_name" {
 }
 
 variable "subscription_id" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
   description = "The value of the Azure Subcription ID to target"
 }
 
 variable "tenant_id" {
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
   description = "The value of the Azure Tenant ID to target"
 }

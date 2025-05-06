@@ -5,5 +5,7 @@
 
 set -e
 terraform init \
-  --backend-config=../shared/config/backend.tfvars \
-  --backend-config=key=terraform.tfstate."$(basename "$(pwd)")"
+  --backend-config=../shared/config/"$(basename "$(pwd)")".tfvars \
+  --backend-config=key=terraform.tfstate."$(basename "$(pwd)")" \
+  --backend-config=container_name="" \
+  --backend-config=storage_account_name=""
