@@ -4,6 +4,12 @@
 
 variable "subscription_id" {
   type        = string
-  description = "secret; cloud.gov deployer account password"
+  description = "The value of the Azure Subscription ID"
   sensitive   = true
+}
+
+variable "tenant_id" {
+  type        = string
+  sensitive   = true
+  description = "The value of the Azure Tenant ID to target"
 }
