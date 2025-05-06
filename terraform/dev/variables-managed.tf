@@ -23,5 +23,5 @@ variable "resource_group_name" {
 variable "keyvault_name" {
   type        = string
   description = "The name of the Keyvault"
-  default     = "AzureDevopsPersonalKeyvaultdev"
+  default     = "AzKVdev"
 }
